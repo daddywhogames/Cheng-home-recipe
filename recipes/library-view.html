@@ -58,7 +58,12 @@
   .hover-details ul{margin:0;padding:0 0 0 15px;list-style:disc;}
   .hover-details li{font-size:11px;margin-bottom:2px;}
 
-  .no-link-card .card:hover{transform:none;box-shadow:none;} /* No hover effect for non-clickable cards */
+  /* Special handling for no-link cards */
+  .no-link-card{
+    cursor: default; /* No pointer cursor */
+    text-decoration: none; /* Ensure no underline on non-links */
+  }
+  .no-link-card .card:hover{transform:none;box-shadow:none;} /* No hover effect */
   .no-link-card .hover-details{position:static;transform:translateY(0%);box-shadow:none;border-top:none;padding:0;pointer-events:auto;}
   .no-link-card h3{margin-bottom:8px;}
   .no-link-card .meta{margin-bottom:8px;}
