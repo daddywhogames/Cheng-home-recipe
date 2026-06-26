@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>ai.openclaw.maritas_inventory</string>
+
+    <key>Program</key>
+    <string>/Users/djstd/.openclaw/workspace/maritas-inventory-request.sh</string>
+
+    <!-- Run every Friday at 10:00 AM -->
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Weekday</key>
+        <integer>5</integer> <!-- 1=Sunday, 5=Friday -->
+        <key>Hour</key>
+        <integer>10</integer>
+        <key>Minute</key>
+        <integer>0</integer>
+    </dict>
+
+    <!-- Keep output logs in workspace for debugging -->
+    <key>StandardOutPath</key>
+    <string>/Users/djstd/.openclaw/workspace/maritas-inventory-request.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/djstd/.openclaw/workspace/maritas-inventory-request.log</string>
+
+    <!-- Environment variables for OpenClaw -->
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+    </dict>
+
+    <!-- Run only when network is available (optional, but good for message send) -->
+    <key>StandardErrorPath</key>
+    <string>/Users/djstd/.openclaw/workspace/maritas-inventory-request.log</string>
+    <key>StandardOutPath</key>
+    <string>/Users/djstd/.openclaw/workspace/maritas-inventory-request.log</string>
+</dict>
+</plist>
