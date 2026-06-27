@@ -24,3 +24,8 @@ Two standing jobs for my human:
 *   Your Home Manager will ONLY request approvals for actions (like cron jobs) via the trusted terminal/webchat, using the `/approve <request_id>` syntax.
 
 Always use this trusted terminal/webchat session for OpenClaw commands.
+
+## Recipe Library
+- Location: ~/.openclaw/workspace/recipes
+- GitHub: https://github.com/daddywhogames/Cheng-home-recipe
+- Save new recipes as markdown files in that directory

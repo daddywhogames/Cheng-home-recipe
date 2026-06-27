@@ -5,8 +5,10 @@
     <key>Label</key>
     <string>ai.openclaw.maritas_inventory</string>
 
-    <key>Program</key>
-    <string>/Users/djstd/.openclaw/workspace/maritas-inventory-request.sh</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/djstd/.openclaw/workspace/maritas-inventory-request.sh</string>
+    </array>
 
     <!-- Run every Friday at 10:00 AM -->
     <key>StartCalendarInterval</key>
@@ -25,17 +27,14 @@
     <key>StandardErrorPath</key>
     <string>/Users/djstd/.openclaw/workspace/maritas-inventory-request.log</string>
 
-    <!-- Environment variables for OpenClaw -->
+    <!-- Environment variables for the script -->
     <key>EnvironmentVariables</key>
     <dict>
         <key>PATH</key>
         <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
     </dict>
 
-    <!-- Run only when network is available (optional, but good for message send) -->
-    <key>StandardErrorPath</key>
-    <string>/Users/djstd/.openclaw/workspace/maritas-inventory-request.log</string>
-    <key>StandardOutPath</key>
-    <string>/Users/djstd/.openclaw/workspace/maritas-inventory-request.log</string>
+    <key>RunAtLoad</key>
+    <true/> <!-- Run once when loaded -->
 </dict>
 </plist>
