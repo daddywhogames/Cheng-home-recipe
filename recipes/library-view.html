@@ -1,1 +1,356 @@
-<!DOCTYPE html><html><body><h1>Cheng Home Recipe Library</h1><h2>Chicken (15)</h2><ul><li>Hainanese Chicken Rice Marions Kitchen (unknown)</li><li>Air Fryer Fried Chicken Bigmansworld (unknown)</li><li>Baked Chicken Legs Wholesomeyum (unknown)</li><li>Chicken Mushroom Soup Woksoflife (unknown)</li><li>Chinese Chicken Chop Hawker Youtube (unknown)</li><li>Crispy Baked Drumsticks Recipetineats (unknown)</li><li>Honey Soy Chicken Wings Rasamalaysia (unknown)</li><li>Nigella Roast Chicken Lemon Rosemary Potatoes (unknown)</li><li>Reel Chicken 2 (unknown)</li><li>Reel Chicken 3 (unknown)</li><li>Reel Chicken 4 (unknown)</li><li>Reel Chicken 5 (unknown)</li><li>Reel Drumstick Variation (unknown)</li><li>Roast Chicken Recipetineats (unknown)</li><li>Soy Sauce Chicken Wings Hkcookery (unknown)</li></ul><h2>Fish (10)</h2><ul><li>Baked Salmon Lemon Garlic Lecreme (unknown)</li><li>Cantonese Steamed Fish Woksoflife (unknown)</li><li>Crispy Fish Tacos Mango Salsa (unknown)</li><li>Crispy Skin Fish Recipetineats (unknown)</li><li>Hamachi Kama Justonecookbook (unknown)</li><li>Hk Steamed Cod Honestcooking (unknown)</li><li>Mirin Glazed Salmon Nigella (unknown)</li><li>Miso Salmon Justonecookbook (unknown)</li><li>Roasted Cod Tomatoes Corn (unknown)</li><li>Teochew Steamed Fish Souperdiaries (unknown)</li></ul><h2>Mains (6)</h2><ul><li>Braised Pork Belly Hongshaorou Redhousespice (unknown)</li><li>Braised Pork Trotters Omnivorescookbook (unknown)</li><li>Creamy Garlic Shrimp Pasta Littlesunnykitchen (unknown)</li><li>Creamy Mushroom Pasta Recipetineats (unknown)</li><li>Jjajangmyeon Maangchi (unknown)</li><li>Korean Beef Bulgogi Damndelicious (unknown)</li></ul><h2>Sides (12)</h2><ul><li>Bok Choy Stir Fry Garlic Tasteasianfood (unknown)</li><li>Broccoli Blanched Sesame Oil Justonecookbook (unknown)</li><li>Crispy Air Fryer Potatoes Feelgoodfoodie (unknown)</li><li>Everyday Vegetable Stir Fry Woksoflife (unknown)</li><li>Japchae Beyondkimchee (unknown)</li><li>Luffa With Egg Simplymommie (unknown)</li><li>Mashed Sweet Potatoes Marthastewart (unknown)</li><li>Oven Roasted Potatoes Spendwithpennies (unknown)</li><li>Roasted Cauliflower Herbes Claudiastable (unknown)</li><li>Soy Butter King Oyster Mushrooms Woksoflife (unknown)</li><li>Spinach Superior Broth Noobcook (unknown)</li><li>Tomato Avocado Salad Gimmedelicious (unknown)</li></ul><p>Updated: 2026-06-28 16:50 - 43 recipes</p></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recipe Library — Cheng Household</title>
+<style>
+  :root{
+    --bg:#faf8f5; --card:#ffffff; --ink:#2c2a26; --muted:#8a8478;
+    --chicken:#e8a13c; --fish:#4a9fc4; --mains:#b06a4a; --sides:#6fa463; --soup:#9b7bb0;
+    --unresolved:#999999; /* For unresolved items */
+    --line:#ece7df;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.5;padding:28px 18px 60px;}
+  .wrap{max-width:860px;margin:0 auto;}
+  header{text-align:center;margin-bottom:26px;}
+  h1{font-size:26px;margin:0 0 6px;letter-spacing:-.3px;}
+  .sub{color:var(--muted);font-size:14px;}
+  .stats{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:20px 0 30px;}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:12px 18px;text-align:center;min-width:88px;}
+  .stat .n{font-size:24px;font-weight:700;}
+  .stat .l{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;}
+  .section{margin-bottom:28px;}
+  .sec-head{display:flex;align-items:center;gap:10px;margin:0 0 14px;
+    font-size:18px;font-weight:700;padding-bottom:8px;border-bottom:2px solid var(--line);}
+  .dot{width:12px;height:12px;border-radius:50%;display:inline-block;}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;}
+  .card-link{text-decoration:none;color:inherit;display:block;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:14px 16px;border-left:4px solid var(--ac);transition:transform .12s,box-shadow .12s;
+    position:relative;overflow:hidden;min-height:120px;cursor:pointer;}
+  .card:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.06);}
+  .card h3{margin:0 0 6px;font-size:15px;}
+  .card .meta{font-size:12px;color:var(--muted);}
+  .tag{display:inline-block;font-size:10px;padding:2px 8px;border-radius:20px;
+    background:#f2ede5;color:var(--muted);margin-top:8px;margin-right:4px;}
+  .est{background:#fbe6c8;color:#9a6b15;}
+  .paywall{background:#ffe0b2;color:#e65100;}
+  .blocked{background:#ffcdd2;color:#b71c1c;}
+  .unidentified{background:#e0e0e0;color:#424242;}
+  
+  /* Hover details */
+  .hover-details{
+    position:absolute;bottom:0;left:0;right:0;background:rgba(255,255,255,0.95); /* Semi-transparent white */
+    backdrop-filter:blur(3px); /* Optional blur effect */
+    padding:10px 16px;box-shadow:0 -5px 15px rgba(0,0,0,0.05); /* Soft shadow on top */
+    transform:translateY(100%);transition:transform .2s ease-out; /* Slide up from bottom */
+    font-size:11px;color:var(--ink);max-height:80%;overflow:auto; /* Allow scrolling for long details */
+    border-top:1px solid var(--line);
+    pointer-events:none; /* Do not block clicks on the card itself initially */
+  }
+  .card:hover .hover-details{transform:translateY(0%);pointer-events:auto;}
+  .hover-details h4{font-size:12px;margin:0 0 4px;color:var(--ink);}
+  .hover-details p{margin:0 0 4px;}
+  .hover-details ul{margin:0;padding:0 0 0 15px;list-style:disc;}
+  .hover-details li{font-size:11px;margin-bottom:2px;}
+
+  /* No-link cards styling for hover, if needed */
+  .no-link-card h3{margin-bottom:8px;}
+  .no-link-card .meta{margin-bottom:8px;}
+  .no-link-card .tags{margin-bottom:8px;}
+
+  .legend{text-align:center;font-size:12px;color:var(--muted);margin-top:10px;}
+  footer{text-align:center;color:var(--muted);font-size:12px;margin-top:36px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>🍽️ Recipe Library</h1>
+    <div class="sub">Cheng Household · 38 recipes · last updated 26 Jun 2026</div>
+  </header>
+
+  <div class="stats">
+    <div class="stat"><div class="n" style="color:var(--chicken)">14</div><div class="l">Chicken</div></div>
+    <div class="stat"><div class="n" style="color:var(--fish)">10</div><div class="l">Fish</div></div>
+    <div class="stat"><div class="n" style="color:var(--mains)">6</div><div class="l">Mains</div></div>
+    <div class="stat"><div class="n" style="color:var(--sides)">12</div><div class="l">Sides</div></div>
+    <div class="stat"><div class="n">2</div><div class="l">Cuisines</div></div>
+  </div>
+
+  <!-- CHICKEN -->
+  <div class="section">
+    <div class="sec-head"><span class="dot" style="background:var(--chicken)"></span>🍗 Chicken</div>
+    <div class="grid" style="--ac:var(--chicken)">
+      <a href="https://www.recipetineats.com/crispy-baked-chicken-drumsticks/" target="_blank" class="card-link">
+        <div class="card"><h3>Crispy Baked Drumsticks</h3><div class="meta">Paprika/garlic rub + baking powder</div><span class="tag">Western</span><span class="tag">Bake</span>
+          <div class="hover-details"><h4>Key Ingredients:</h4><ul><li>Chicken drumsticks</li><li>Baking powder, paprika, onion/garlic powder</li></ul><h4>Method Hint:</h4><p>Coat, spray, bake until crisp.</p></div>
+        </div>
+      </a>
+      <a href="https://www.wholesomeyum.com/crispy-baked-chicken-legs-drumsticks-recipe/" target="_blank" class="card-link">
+        <div class="card"><h3>Baked Chicken Legs</h3><div class="meta">Smoked paprika + garlic</div><span class="tag">Western</span><span class="tag">Bake</span>
+          <div class="hover-details"><h4>Key Ingredients:</h4><ul><li>Chicken drumsticks</li><li>Butter/oil, smoked paprika, garlic powder</li></ul><h4>Method Hint:</h4><p>Pat dry, brush, season, roast high heat.</p></div>
+        </div>
+      </a>
+      <a href="https://www.thehongkongcookery.com/2012/04/soy-sauce-chicken-wings.html" target="_blank" class="card-link">
+        <div class="card"><h3>Soy Sauce Chicken Wings 紅燒雞翼</h3><div class="meta">Red-cooked, star anise</div><span class="tag">Chinese</span><span class="tag">Braise</span>
+          <div class="hover-details"><h4>Key Ingredients:</h4><ul><li>Chicken wings</li><li>Ginger, spring onions, soy sauces, rock sugar, star anise</li></ul><h4>Method Hint:</h4><p>Fry aromatics, brown wings, braise in sauce, reduce.</p></div>
+        </div>
+      </a>
+      <a href="https://rasamalaysia.com/honey-soy-chicken-wings/" target="_blank" class="card-link">
+        <div class="card"><h3>Honey Soy Sticky Wings</h3><div class="meta">Baked, sweet-savory glaze</div><span class="tag">Asian</span><span class="tag">Bake</span>
+          <div class="hover-details"><h4>Key Ingredients:</h4><ul><li>Chicken wings</li><li>Soy sauce, honey, ginger, sake, sesame oil</li></ul><h4>Method Hint:</h4><p>Marinate, bake, glaze, caramelize.</p></div>
+        </div>
+      </a>
+      <a href="https://thebigmansworld.com/air-fryer-fried-chicken/" target="_blank" class="card-link">
+        <div class="card"><h3>Air Fryer "KFC-Style" Chicken</h3><div class="meta">Crispy, kid-favorite</div><span class="tag">Western</span><span class="tag">Air-fry</span>
+          <div class="hover-details"><h4>Key Ingredients:</h4><ul><li>Chicken (bone-in, skin-on)</li><li>Buttermilk, flour, cornstarch, spices</li></ul><h4>Method Hint:</h4><p>Marinate, bread, air fry until crisp.</p></div>
+        </div>
+      </a>
+      <a href="https://www.recipetineats.com/roast-chicken/" target="_blank" class="card-link">
+        <div class="card"><h3>Whole Roast Chicken</h3><div class="meta">Garlic-herb-lemon butter</div><span class="tag">Western</span><span class="tag">Roast</span>
+          <div class="hover-details"><h4>Key Ingredients:</h4><ul><li>Whole chicken</li><li>Butter, garlic, herbs, lemon, onion</li></ul><h4>Method Hint:</h4><p>Rub with butter, stuff, roast until juices clear.</p></div>
+        </div>
+      </a>
+      <a href="https://www.smh.com.au/goodfood/roast-chicken-with-lemon-rosemary-garlic-and-potatoes-20151211-gll6s4.html" target="_blank" class="card-link">
+        <div class="card"><h3>Nigella Roast Chicken + Potatoes</h3><div class="meta">One-tin, leeks</div><span class="tag">Western</span><span class="tag">Roast</span>
+          <div class="hover-details"><h4>Key Ingredients:</h4><ul><li>Chicken, potatoes, leeks, lemon, rosemary, garlic</li></ul><h4>Method Hint:</h4><p>One-tin roast with veg, chicken on top.</p></div>
+        </div>
+      </a>
+      <a href="https://thewoksoflife.com/chinese-chicken-mushroom-soup/" target="_blank" class="card-link">
+        <div class="card"><h3>Chinese Chicken &amp; Shiitake Soup</h3><div class="meta">Chinese comfort soup</div><span class="tag">Chinese</span><span class="tag">Soup</span>
+          <div class="hover-details"><h4>Key Ingredients:</h4><ul><li>Whole chicken, dried shiitake, goji berries, red dates, ginger</li></ul><h4>Method Hint:</h4><p>Soak mushrooms, simmer all ingredients for flavorful broth.</p></div>
+        </div>
+      </a>
+      <a href="https://youtu.be/kHc_DgWGQDE" target="_blank" class="card-link">
+        <div class="card"><h3>Chinese Chicken Chop 西式鸡扒</h3><div class="meta">Hawker style (YouTube)</div><span class="tag">Chinese</span><span class="tag est">⚠ Video</span>
+          <div class="hover-details"><h4>Details:</h4><p>Watch video for full recipe. Marinade, pan-fry, serve with black pepper sauce &amp; sides.</p></div>
+        </div>
+      </a>
+      <a href="https://www.instagram.com/reel/DTIm_yuAKMJ/" target="_blank" class="card-link">
+        <div class="card"><h3>Drumstick Variation (IG Reel)</h3><div class="meta">Sticky/glazed baked drumsticks</div><span class="tag est">⚠ Video</span><span class="tag unidentified">Estimated</span>
+          <div class="hover-details"><h4>Details:</h4><p>Watch Instagram Reel for recipe. Estimated: chicken drumsticks, soy, honey, garlic.</p></div>
+        </div>
+      </a>
+      <a href="https://www.instagram.com/reel/DE7JVZPysPm/" target="_blank" class="card-link">
+        <div class="card"><h3>Roast Chicken (IG Reel 2)</h3><div class="meta">Whole roast/traybake</div><span class="tag est">⚠ Video</span><span class="tag unidentified">Estimated</span>
+          <div class="hover-details"><h4>Details:</h4><p>Watch Instagram Reel for recipe. Estimated: whole chicken, butter/oil, garlic, herbs.</p></div>
+        </div>
+      </a>
+      <a href="https://www.instagram.com/reel/DT232oHkjB_/" target="_blank" class="card-link">
+        <div class="card"><h3>Easy Chicken Dinner (IG Reel 3)</h3><div class="meta">Stir-fry or baked</div><span class="tag est">⚠ Video</span><span class="tag unidentified">Estimated</span>
+          <div class="hover-details"><h4>Details:</h4><p>Watch Instagram Reel for recipe. Estimated: chicken, soy/garlic/ginger, veg.</p></div>
+        </div>
+      </a>
+      <a href="https://www.instagram.com/reel/DSCv42iD2rJ/" target="_blank" class="card-link">
+        <div class="card"><h3>Crispy Chicken (IG Reel 4)</h3><div class="meta">Oven/air-fryer drumsticks/wings</div><span class="tag est">⚠ Video</span><span class="tag unidentified">Estimated</span>
+          <div class="hover-details"><h4>Details:</h4><p>Watch Instagram Reel for recipe. Estimated: chicken, baking powder/cornstarch, spices.</p>.</p></div>
+        </div>
+      </a>
+      <a href="https://www.instagram.com/reel/DT232oHkjB_/" target="_blank" class="card-link">
+        <div class="card"><h3>Marinated Baked Chicken (IG Reel 5)</h3><div class="meta">Drumsticks/thighs</div><span class="tag est">⚠ Video</span><span class="tag unidentified">Estimated</span>
+          <div class="hover-details"><h4>Details:</h4><p>Watch Instagram Reel for recipe. Estimated: chicken, soy/BBQ marinade.</p>.</p></div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- FISH -->
+  <div class="section">
+    <div class="sec-head"><span class="dot" style="background:var(--fish)"></span>🐟 Fish &amp; Seafood</div>
+    <div class="grid" style="--ac:var(--fish)">
+      <a href="https://www.lecremedelacrumb.com/best-easy-healthy-baked-salmon/" target="_blank" class="card-link">
+        <div class="card"><h3>Baked Salmon, Lemon-Garlic</h3><div class="meta">Easy healthy weeknight</div><span class="tag">Western</span><span class="tag">Bake</span>
+          <div class="hover-details"><h4>Key Ingredients:</h4><ul><li>Salmon fillets</li><li>Olive oil, garlic, Italian herbs, lemon</li></ul><h4>Method Hint:</h4><p>Season, spoon oil mix, bake until flaky.</p></div>
+        </div>
+      </a>
+      <a href="https://www.justonecookbook.com/miso-salmon/" target="_blank" class="card-link">
+        <div class="card"><h3>Miso Salmon 味噌サーモン</h3><div class="meta">Broiled, Japanese pantry marinade</div><span class="tag">Japanese</span><span class="tag">Broil</span>
+          <div class="hover-details"><h4>Key Ingredients:</h4><ul><li>Salmon</li><li>White miso, soy, sake, mirin, sesame oil</li></ul><h4>Method Hint:</h4><p>Marinate, wipe off, broil until tender &amp; golden.</p></div>
+        </div>
+      </a>
+      <a href="https://cookingwithcocktailrings.com/roasted-cod-with-tomatoes-and-corn/" target="_blank" class="card-link">
+        <div class="card"><h3>Roasted Cod, Tomato &amp; Corn</h3><div class="meta">One-pan</div><span class="tag">Western</span><span class="tag">Roast</span>
+          <div class="hover-details"><h4>Key Ingredients:</h4><ul><li>Cod fillets, shallot, cherry tomatoes, corn, lemon, basil</li></ul><h4>Method Hint:</h4><p>Cook veg, nestle cod, roast until flaky.</p></div>
+        </div>
+      </a>
+      <a href="https://honestcooking.com/hong-kong-style-steamed-cod-fish/" target="_blank" class="card-link">
+        <div class="card"><h3>Hong Kong Steamed Cod</h3><div class="meta">Ginger, soy, garlic oil</div><span class="tag">Chinese</span><span class="tag">Steam</span>
+          <div class="hover-details"><h4>Key Ingredients:</h4><ul><li>Cod steak, ginger, soy, rock sugar, Shaoxing wine, garlic</li></ul><h4>Method Hint:</h4><p>Steam, pour sauce, hot garlic oil.</p></div>
+        </div>
+      </a>
+      <a href="https://www.realfoodwithsarah.com/crispy-fish-tacos-with-mango-salsa/" target="_blank" class="card-link">
+        <div class="card"><h3>Crispy Baked Fish Tacos</h3><div class="meta">+ Mango salsa</div><span class="tag">Mexican</span><span class="tag">Bake</span>
+          <div class="hover-details"><h4>Key Ingredients:</h4><ul><li>White fish, flour, eggs, breadcrumbs. Mango salsa</li></ul><h4>Method Hint:</h4><p>Bread fish, bake until flaky, serve in tortillas with salsa.</p></div>
+        </div>
+      </a>
+      <a href="https://souperdiaries.com/teochew-steamed-fish/" target="_blank" class="card-link">
+        <div class="card"><h3>Teochew Steamed Fish</h3><div class="meta">Salted plum, mushroom, tofu</div><span class="tag">Teochew</span><span class="tag">Steam</span>
+          <div class="hover-details"><h4>Key Ingredients:</h4><ul><li>Whole fish, salted plums, shiitake, tofu, tomatoes, ginger</li></ul><h4>Method Hint:</h4><p>Layer ingredients, steam until fish flaky, drizzle shallot oil.</p></div>
+        </div>
+      </a>
+      <a href="https://thewoksoflife.com/cantonese-steamed-fish/" target="_blank" class="card-link">
+        <div class="card"><h3>Cantonese Steamed Fish</h3><div class="meta">Ginger, scallion, hot oil</div><span class="tag">Cantonese</span><span class="tag">Steam</span>
+          <div class="hover-details"><h4>Key Ingredients:</h4><ul><li>White fish, ginger, scallions, soy sauce, hot oil</li></ul><h4>Method Hint:</h4><p>Steam fish, pour off liquid, top with aromatics, hot oil drizzle.</p></div>
+        </div>
+      </a>
+      <a href="https://www.justonecookbook.com/hamachi-kama/" target="_blank" class="card-link">
+        <div class="card"><h3>Hamachi Kama — Grilled Yellowtail</h3><div class="meta">Fatty collar, shio-yaki style</div><span class="tag">Japanese</span><span class="tag">Grill</span>
+          <div class="hover-details"><h4>Key Ingredients:</h4><ul><li>Yellowtail collar, salt, sake, lemon</li></ul><h4>Method Hint:</h4><p>Pat dry, salt, broil/grill until crisp, serve with citrus.</p></div>
+        </div>
+      </a>
+      <a href="https://www.nigella.com/recipes/mirin-glazed-salmon" target="_blank" class="card-link">
+        <div class="card"><h3>Mirin Glazed Salmon</h3><div class="meta">Nigella Express, sweet-salty</div><span class="tag">Western</span><span class="tag">Pan</span>
+          <div class="hover-details"><h4>Key Ingredients:</h4><ul><li>Salmon fillets, mirin, brown sugar, soy sauce, rice wine vinegar</li></ul><h4>Method Hint:</h4><p>Marinate briefly, pan-fry, glaze with sauce.</p></div>
+        </div>
+      </a>
+      <div class="card no-link-card"><h3>Crispy Skin Fish</h3><div class="meta">Cookbook-only</div><span class="tag est">⚠ Cookbook</span><span class="tag unidentified">No Link</span>
+        <div class="hover-details"><h4>Details:</h4><p>Cookbook-exclusive. General technique: sear skin-down until crisp, serve with bean ragu.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAINS -->
+  <div class="section">
+    <div class="sec-head"><span class="dot" style="background:var(--mains)"></span>🍝 Mains</div>
+    <div class="grid" style="--ac:var(--mains)">
+      <a href="https://www.recipetineats.com/creamy-mushroom-pasta/" target="_blank" class="card-link">
+        <div class="card"><h3>Creamy Mushroom Pasta</h3><div class="meta">Parmesan, white wine</div><span class="tag">Western</span><span class="tag">Stovetop</span>
+          <div class="hover-details"><h4>Key Ingredients:</h4><ul><li>Pasta, mushrooms, garlic, butter, white wine, cream, parmesan</li></ul><h4>Method Hint:</h4><p>Cook pasta, pan-fry mushrooms, deglaze, add cream/parmesan, toss.</p></div>
+        </div>
+      </a>
+      <a href="https://redhousespice.com/red-cooked-pork-belly/" target="_blank" class="card-link">
+        <div class="card"><h3>Braised Pork Belly 红烧肉</h3><div class="meta">Easy version, tender, aromatic</div><span class="tag">Chinese</span><span class="tag">Braise</span>
+          <div class="hover-details"><h4>Key Ingredients:</h4><ul><li>Pork belly, ginger, scallions, soy sauces, Shaoxing, rock sugar, star anise</li></ul><h4>Method Hint:</h4><p>Blanch pork, braise with aromatics &amp; sauce, reduce.</p></div>
+        </div>
+      </a>
+      <a href="https://www.maangchi.com/recipe/jjajangmyeon" target="_blank" class="card-link">
+        <div class="card"><h3>Jjajangmyeon 짜장면</h3><div class="meta">Korean Black Bean Noodles</div><span class="tag">Korean</span><span class="tag blocked">⚠ Blocked Source</span>
+          <div class="hover-details"><h4>Details:</h4><p>Source blocked on fetch. Standard version: Noodles, pork, chunjang, veg. Fry chunjang, stir-fry, thicken sauce.</p></div>
+        </div>
+      </a>
+      <a href="https://damndelicious.net/2019/04/21/korean-beef-bulgogi/" target="_blank" class="card-link">
+        <div class="card"><h3>Korean Beef Bulgogi</h3><div class="meta">Thinly sliced, sweet-savory marinade</div><span class="tag">Korean</span><span class="tag blocked">⚠ Blocked Source</span>
+          <div class="hover-details"><h4>Details:</h4><p>Source blocked on fetch. Standard version: Ribeye, soy, brown sugar, sesame oil, garlic, ginger. Marinate, cook in hot skillet.</p></div>
+        </div>
+      </a>
+      <a href="https://omnivorescookbook.com/hardcore-chinese-braised-pork-feet/" target="_blank" class="card-link">
+        <div class="card"><h3>Chinese Braised Pork Trotters 红烧猪蹄</h3><div class="meta">Fall-off-the-bone tender</div><span class="tag">Chinese</span><span class="tag">Braise</span>
+          <div class="hover-details"><h4>Key Ingredients:</h4><ul><li>Pork trotters, ginger, green onion, star anise, soy sauces, Shaoxing, rock sugar</li></ul><h4>Method Hint:</h4><p>Blanch, pressure cook/simmer, braise until rich and glossy.</p></div>
+        </div>
+      </a>
+      <a href="https://littlesunnykitchen.com/garlic-shrimp-pasta/" target="_blank" class="card-link">
+        <div class="card"><h3>Creamy Garlic Shrimp Pasta</h3><div class="meta">Fast, cheesy, garlicky</div><span class="tag">Western</span><span class="tag">Stovetop</span>
+          <div class="hover-details"><h4>Key Ingredients:</h4><ul><li>Shrimp, pasta, olive oil, butter, garlic, cream, parmesan</li></ul><h4>Method Hint:</h4><p>Cook pasta, sauté shrimp, add cream/parmesan, toss pasta.</p></div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- SIDES -->
+  <div class="section">
+    <div class="sec-head"><span class="dot" style="background:var(--sides)"></span>🥦 Sides &amp; Vegetables</div>
+    <div class="grid" style="--ac:var(--sides)">
+      <a href="https://noobcook.com/spinach-in-superior-broth/2/" target="_blank" class="card-link">
+        <div class="card"><h3>Chinese Spinach in Superior Broth</h3><div class="meta">Light, clean</div><span class="tag">Chinese</span><span class="tag">Blanch</span>
+          <div class="hover-details"><h4>Key Ingredients:</h4><ul><li>Spinach, ikan bilis, garlic, century egg, wolfberries</li></ul><h4>Method Hint:</h4><p>Simmer ikan bilis stock, stir-fry spinach, combine.</p></div>
+        </div>
+      </a>
+      <a href="https://www.beyondkimchee.com/japchae/" target="_blank" class="card-link">
+        <div class="card"><h3>Korean Japchae</h3><div class="meta">Glass noodles (has beef)</div><span class="tag">Korean</span><span class="tag">Stir-fry</span>
+          <div class="hover-details"><h4>Key Ingredients:</h4><ul><li>Dangmyeon, beef (optional), onion, carrot, bell pepper, mushrooms, spinach. Soy/sugar/mirin sauce</li></ul><h4>Method Hint:</h4><p>Soak noodles, marinate beef, stir-fry veg, toss all with sauce.</p></div>
+        </div>
+      </a>
+      <a href="https://www.spendwithpennies.com/simple-herb-oven-roasted-potatoes/" target="_blank" class="card-link">
+        <div class="card"><h3>Herb Oven-Roasted Potatoes</h3><div class="meta">Simple, kid-friendly</div><span class="tag">Western</span><span class="tag">Roast</span>
+          <div class="hover-details"><h4>Key Ingredients:</h4><ul><li>Potatoes, olive oil, salt, pepper, herbs (rosemary/thyme)</li></ul><h4>Method Hint:</h4><p>Cut, toss with oil/seasoning, roast until tender &amp; crisp.</p></div>
+        </div>
+      </a>
+      <a href="https://claudiastable.com/roasted-purple-cauliflower/" target="_blank" class="card-link">
+        <div class="card"><h3>Roasted Cauliflower</h3><div class="meta">Herbes de Provence</div><span class="tag">Western</span><span class="tag">Roast</span>
+          <div class="hover-details"><h4>Key Ingredients:</h4><ul><li>Cauliflower, olive oil, Herbes de Provence, salt, pepper</li></ul><h4>Method Hint:</h4><p>Drizzle oil, season, roast until tender &amp; caramelized.</p></div>
+        </div>
+      </a>
+      <a href="https://gimmedelicious.com/avocado-tomato-salad/" target="_blank" class="card-link">
+        <div class="card"><h3>Tomato Avocado Salad</h3><div class="meta">Lime, cilantro</div><span class="tag">Fresh</span><span class="tag">No-cook</span>
+          <div class="hover-details"><h4>Key Ingredients:</h4><ul><li>Tomatoes, avocado, red onion, cilantro, lime juice, olive oil</li></ul><h4>Method Hint:</h4><p>Combine ingredients, drizzle dressing, gently toss.</p></div>
+        </div>
+      </a>
+      <a href="https://thewoksoflife.com/king-oyster-mushroom-recipe/" target="_blank" class="card-link">
+        <div class="card"><h3>Soy-Butter King Oyster Mushrooms</h3><div class="meta">Glazed, umami</div><span class="tag">Asian</span><span class="tag">Pan</span>
+          <div class="hover-details"><h4>Key Ingredients:</h4><ul><li>King oyster mushrooms, butter, soy sauce, garlic</li></ul><h4>Method Hint:</h4><p>Slice, pan-fry, glaze with soy-butter-garlic.</p></div>
+        </div>
+      </a>
+      <a href="https://thewoksoflife.com/everyday-vegetable-stir-fry/" target="_blank" class="card-link">
+        <div class="card"><h3>Everyday Vegetable Stir-fry</h3><div class="meta">Flexible, uses-what's-left</div><span class="tag">Chinese</span><span class="tag blocked">⚠ Blocked Source</span>
+          <div class="hover-details"><h4>Details:</h4><p>Source blocked on fetch. Standard: Mixed vegetables, garlic/ginger. Stir-fry sauce.</p></div>
+        </div>
+      </a>
+      <a href="https://www.marthastewart.com/861595/mashed-sweet-potatoes-recipe-11922486" target="_blank" class="card-link">
+        <div class="card"><h3>Mashed Sweet Potatoes</h3><div class="meta">Standard version</div><span class="tag paywall">⚠ Paywalled</span>
+          <div class="hover-details"><h4>Details:</h4><p>Source paywalled. Standard: Sweet potatoes, butter, milk/cream, salt, pepper.</p></div>
+        </div>
+      </a>
+      <a href="https://feelgoodfoodie.net/recipe/air-fryer-potatoes/" target="_blank" class="card-link">
+        <div class="card"><h3>Crispy Air Fryer Potatoes</h3><div class="meta">Crispy seasoned, easy</div><span class="tag">Western</span><span class="tag">Air-fry</span>
+          <div class="hover-details"><h4>Key Ingredients:</h4><ul><li>Yukon gold potatoes, olive oil, paprika, garlic powder</li></ul><h4>Method Hint:</h4><p>Toss with oil/seasoning, air fry until crispy.</p></div>
+        </div>
+      </a>
+      <a href="https://simplymommie.com/2010/01/luffa-with-egg-recipe.html" target="_blank" class="card-link">
+        <div class="card"><h3>Luffa with Egg &amp; Prawns 絲瓜炒蛋</h3><div class="meta">Simple stir-fry, savory</div><span class="tag">Chinese</span><span class="tag">Stir-fry</span>
+          <div class="hover-details"><h4>Key Ingredients:</h4><ul><li>Luffa, prawns, egg, garlic, stock</li></ul><h4>Method Hint:</h4><p>Sauté garlic, cook prawns, stir-fry luffa, add egg, season.</p></div>
+        </div>
+      </a>
+      <a href="https://www.justonecookbook.com/broccoli-blanched-with-sesame-oil/" target="_blank" class="card-link">
+        <div class="card"><h3>Broccoli Blanched with Sesame Oil</h3><div class="meta">Pre-seasoned, meal prep friendly</div><span class="tag">Japanese</span><span class="tag">Blanch</span>
+          <div class="hover-details"><h4>Key Ingredients:</h4><ul><li>Broccoli, water, salt, toasted sesame oil</li></ul><h4>Method Hint:</h4><p>Blanch in salted water with sesame oil until crisp-tender.</p></div>
+        </div>
+      </a>
+      <a href="https://tasteasianfood.com/bok-choy-stir-fry/" target="_blank" class="card-link">
+        <div class="card"><h3>Garlic Bok Choy Stir-fry</h3><div class="meta">Classic Cantonese</div><span class="tag">Cantonese</span><span class="tag">Stir-fry</span>
+          <div class="hover-details"><h4>Key Ingredients:</h4><ul><li>Bok choy, garlic, oil, light soy/oyster sauce, sugar</li></ul><h4>Method Hint:</h4><p>Heat wok, aromatics, stir-fry bok choy, add sauce, toss.</p></div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- UNRESOLVED -->
+  <div class="section">
+    <div class="sec-head" style="color:var(--unresolved);border-bottom-color:var(--unresolved);">
+      <span class="dot" style="background:var(--unresolved)"></span>❓ Unidentified / Video Links
+    </div>
+    <div class="grid" style="--ac:var(--unresolved);">
+      <a href="https://www.instagram.com/reel/DTYDwxoDq39/" target="_blank" class="card-link">
+        <div class="card"><h3>Unidentified Instagram Reel</h3><div class="meta">Video link, content not extracted</div><span class="tag unidentified">⚠ Video</span><span class="tag unidentified">Estimated</span>
+          <div class="hover-details"><h4>Details:</h4><p>Instagram reel content cannot be extracted. Needs dish name from owner.</p></div>
+        </div>
+      </a>
+      <a href="https://www.instagram.com/reel/DLkf0bHRmJv/" target="_blank" class="card-link">
+        <div class="card"><h3>Unidentified Instagram Reel</h3><div class="meta">Video link, content not extracted</div><span class="tag unidentified">⚠ Video</span><span class="tag unidentified">Estimated</span>
+          <div class="hover-details"><h4>Details:</h4><p>Instagram reel content cannot be extracted. Needs dish name from owner.</p></div>
+        </div>
+      </a>
+      <a href="https://www.instagram.com/reel/C6GihzkSM9Q/" target="_blank" class="card-link">
+        <div class="card"><h3>Unidentified Instagram Reel</h3><div class="meta">Video link, content not extracted</div><span class="tag unidentified">⚠ Video</span><span class="tag unidentified">Estimated</span>
+          <div class="hover-details"><h4>Details:</h4><p>Instagram reel content cannot be extracted. Needs dish name from owner.</p>.</p></div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="legend">⚠ = recipe estimated/incomplete — confirm before relying on it.</div>
+  <footer>Home Manager 🙂 · drawn from your saved recipes · updates as you add more</footer>
+</div>
+<script>
+  document.querySelectorAll('.card[data-url]').forEach(card => {
+    card.addEventListener('click', () => {
+      window.open(card.dataset.url, '_blank');
+    });
+  });
+</script>
+</body>
+</html>
