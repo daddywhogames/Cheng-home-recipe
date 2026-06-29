@@ -29,7 +29,7 @@
           <tr><td>Thursday</td><td>Miso Salmon + Everyday Vegetable Stir-Fry</td></tr>
           <tr><td>Friday</td><td>Soy Sauce Chicken Wings + Japchae</td></tr>
           <tr class="weekend"><td>Saturday</td><td>Ayam Buah Keluak + Char Siew Rice <span class="note">(Weekend — last menu repeated)</span></td></tr>
-          <tr class="weekend"><td>Sunday</td><td>Ayam Buah Keluak + Char Siew Rice <span class="note">(Weekend — last menu repeated)</span></td></tr>
+          <tr class="weekend"><td>Sunday"><td>Ayam Buah Keluak + Char Siew Rice <span class="note">(Weekend — last menu repeated)</span></td></tr>
         </tbody>
       </table>
     </div>
@@ -38,7 +38,7 @@
   <main id="recipe-library">
 
     <section data-category="chicken">
-      <h2>Chicken</h2>
+      <h2>🍗 Chicken</h2>
       <ul>
         <li data-new="true" data-summary="Classic Hainanese poached chicken over fragrant rice" data-ingredients="Whole chicken, jasmine rice, ginger, garlic, pandan leaves, sesame oil, soy sauce, chilli sauce">
           <a href="chicken/Hainanese_Chicken_Rice_Marions_Kitchen.md">Hainanese Chicken Rice (Marion's Kitchen)</a>
@@ -89,7 +89,7 @@
     </section>
 
     <section data-category="fish">
-      <h2>Fish</h2>
+      <h2>🐟 Fish</h2>
       <ul>
         <li data-summary="Healthy lemon garlic baked salmon" data-ingredients="Salmon fillets, lemon, garlic, olive oil, parsley, salt, pepper">
           <a href="fish/baked-salmon-lemon-garlic-lecreme.md">Baked Salmon — Lemon &amp; Garlic (Creme de la Crumb)</a>
@@ -125,7 +125,7 @@
     </section>
 
     <section data-category="mains">
-      <h2>Mains</h2>
+      <h2>🍖 Mains</h2>
       <ul>
         <li data-summary="Tender red-braised pork belly — Hong Shao Rou" data-ingredients="Pork belly, soy sauce, dark soy sauce, Shaoxing wine, sugar, ginger, garlic, star anise">
           <a href="mains/braised-pork-belly-hongshaorou-redhousespice.md">Braised Pork Belly 红烧肉 (Red House Spice)</a>
@@ -149,7 +149,7 @@
     </section>
 
     <section data-category="sides">
-      <h2>Sides</h2>
+      <h2>🥗 Sides</h2>
       <ul>
         <li data-summary="Cantonese garlic bok choy stir-fry" data-ingredients="Bok choy, garlic, oil, oyster sauce, soy sauce, sesame oil">
           <a href="sides/bok-choy-stir-fry-garlic-tasteasianfood.md">Bok Choy Stir-Fry with Garlic</a>
@@ -196,11 +196,18 @@
     // Dynamic recipe counts in header
     const sections = document.querySelectorAll('#recipe-library section');
     let total = 0, parts = [];
+    const categoryEmoticons = {
+      'Chicken': '🍗',
+      'Fish': '🐟',
+      'Mains': '🍖',
+      'Sides': '🥗'
+    };
     sections.forEach(s => {
-      const cat = s.querySelector('h2').textContent.split('(')[0].trim();
+      const cat = s.querySelector('h2').textContent.split('(')[0].trim().replace(/^(🍗|🐟|🍖|🥗)\s/, ''); // Remove existing emoticon for count
       const count = s.querySelectorAll('li').length;
       total += count;
-      parts.push(`${cat} (${count})`);
+      const emoticon = categoryEmoticons[cat] || '';
+      parts.push(`${emoticon} ${cat} (${count})`);
     });
     document.getElementById('recipe-counts').textContent = parts.join(' · ') + ` — Total: ${total}`;
 
@@ -221,16 +228,4 @@
       li.addEventListener('mouseenter', () => showTip(li));
       li.addEventListener('mouseleave', hideTip);
       li.addEventListener('focusin', () => showTip(li));
-      li.addEventListener('focusout', hideTip);
-      li.addEventListener('touchstart', e => {
-        if (activeTooltip && li.contains(activeTooltip)) { hideTip(); }
-        else { e.preventDefault(); showTip(li); }
-      }, { passive: false });
-    });
-    document.addEventListener('touchstart', e => {
-      if (activeTooltip && !activeTooltip.closest('li').contains(e.target)) hideTip();
-    });
-  </script>
-
-</body>
-</html>
+      li.addEventListener('focusout', hideTip);\n      li.addEventListener('touchstart', e => {\n        if (activeTooltip && li.contains(activeTooltip)) { hideTip(); }\n        else { e.preventDefault(); showTip(li); }\n      }, { passive: false });\n    });\n    document.addEventListener('touchstart', e => {\n      if (activeTooltip && !activeTooltip.closest('li').contains(e.target)) hideTip();\n    });\n  </script>\n\n</body>\n</html>
