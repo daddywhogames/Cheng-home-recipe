@@ -18,7 +18,7 @@
   </header>
 
   <details id="weekly-menu">
-    <summary>Today · Mon: Hainanese Chicken Rice · Stir-fried Kai Lan</summary>
+    <summary id="today-summary">Loading today's menu…</summary>
     <div class="menu-inner">
       <table>
         <thead><tr><th>Day</th><th>Meal</th></tr></thead>
@@ -40,28 +40,28 @@
     <section data-category="chicken">
       <h2>🍗 Chicken</h2>
       <ul>
-        <li data-new="true" data-summary="Classic Hainanese poached chicken over fragrant rice" data-ingredients="Whole chicken, jasmine rice, ginger, garlic, pandan leaves, sesame oil, soy sauce, chilli sauce">
+        <li data-new="true" data-cook-count="0" data-summary="Classic Hainanese poached chicken over fragrant rice" data-ingredients="Whole chicken, jasmine rice, ginger, garlic, pandan leaves, sesame oil, soy sauce, chilli sauce">
           <a href="https://www.marionskitchen.com/hainanese-chicken-rice/" target="_blank">Hainanese Chicken Rice (Marion's Kitchen)</a>
         </li>
-        <li data-summary="KFC-style crispy fried chicken made in the air fryer" data-ingredients="Chicken pieces, buttermilk, flour, paprika, garlic powder, onion powder, cayenne, salt">
+        <li data-cook-count="0" data-summary="KFC-style crispy fried chicken made in the air fryer" data-ingredients="Chicken pieces, buttermilk, flour, paprika, garlic powder, onion powder, cayenne, salt">
           <a href="https://thebigmansworld.com/air-fryer-fried-chicken/" target="_blank">Air Fryer Fried Chicken — KFC Style</a>
         </li>
-        <li data-summary="Juicy oven-baked chicken legs with crispy skin" data-ingredients="Chicken drumsticks, olive oil, garlic powder, paprika, salt, pepper">
+        <li data-cook-count="0" data-summary="Juicy oven-baked chicken legs with crispy skin" data-ingredients="Chicken drumsticks, olive oil, garlic powder, paprika, salt, pepper">
           <a href="https://www.wholesomeyum.com/crispy-baked-chicken-legs-drumsticks-recipe/" target="_blank">Baked Chicken Legs (Wholesome Yum)</a>
         </li>
-        <li data-summary="Warming Chinese chicken and mushroom soup" data-ingredients="Chicken, dried shiitake mushrooms, ginger, soy sauce, sesame oil, scallions">
+        <li data-cook-count="0" data-summary="Warming Chinese chicken and mushroom soup" data-ingredients="Chicken, dried shiitake mushrooms, ginger, soy sauce, sesame oil, scallions">
           <a href="https://thewoksoflife.com/chinese-chicken-mushroom-soup/" target="_blank">Chinese Chicken Mushroom Soup</a>
         </li>
-        <li data-summary="SG/Malaysia hawker-style Chinese chicken chop with gravy" data-ingredients="Chicken thigh, soy sauce, oyster sauce, dark soy sauce, garlic, onion, tomato sauce">
+        <li data-cook-count="0" data-summary="SG/Malaysia hawker-style Chinese chicken chop with gravy" data-ingredients="Chicken thigh, soy sauce, oyster sauce, dark soy sauce, garlic, onion, tomato sauce">
           <a href="https://youtu.be/kHc_DgWGQDE" target="_blank">Chinese Chicken Chop 西式鸡扒</a>
         </li>
-        <li data-summary="Ultra-crispy oven-baked chicken drumsticks" data-ingredients="Chicken drumsticks, baking powder, salt, pepper, paprika, garlic powder">
+        <li data-cook-count="0" data-summary="Ultra-crispy oven-baked chicken drumsticks" data-ingredients="Chicken drumsticks, baking powder, salt, pepper, paprika, garlic powder">
           <a href="https://www.recipetineats.com/crispy-baked-chicken-drumsticks/" target="_blank">Crispy Baked Chicken Drumsticks (RecipeTin)</a>
         </li>
-        <li data-summary="Sweet and sticky honey soy chicken wings" data-ingredients="Chicken wings, honey, soy sauce, garlic, ginger, sesame oil">
+        <li data-cook-count="0" data-summary="Sweet and sticky honey soy chicken wings" data-ingredients="Chicken wings, honey, soy sauce, garlic, ginger, sesame oil">
           <a href="https://rasamalaysia.com/honey-soy-chicken-wings/" target="_blank">Honey Soy Chicken Wings (Rasa Malaysia)</a>
         </li>
-        <li data-summary="Nigella's roast chicken with lemon, rosemary, garlic and potatoes" data-ingredients="Whole chicken, lemon, rosemary, garlic, potatoes, olive oil, salt, pepper">
+        <li data-cook-count="0" data-summary="Nigella's roast chicken with lemon, rosemary, garlic and potatoes" data-ingredients="Whole chicken, lemon, rosemary, garlic, potatoes, olive oil, salt, pepper">
           <a href="https://www.smh.com.au/goodfood/roast-chicken-with-lemon-rosemary-garlic-and-potatoes-20151211-gll6s4.html" target="_blank">Nigella Roast Chicken with Lemon &amp; Rosemary</a>
         </li>
         <li data-summary="⚠️ Estimated Instagram reel — roast chicken variation" data-ingredients="Unverified — see file">
@@ -79,10 +79,10 @@
         <li data-summary="⚠️ Estimated Instagram reel — drumstick variation" data-ingredients="Unverified — see file">
           <a href="https://www.instagram.com/reel/DTIm_yuAKMJ/" target="_blank">⚠️ Instagram Reel — Drumstick Variation (Estimate)</a>
         </li>
-        <li data-summary="Classic RecipeTin Eats roast chicken, juicy with crispy skin" data-ingredients="Whole chicken, butter, garlic, thyme, rosemary, salt, pepper, lemon">
+        <li data-cook-count="0" data-summary="Classic RecipeTin Eats roast chicken, juicy with crispy skin" data-ingredients="Whole chicken, butter, garlic, thyme, rosemary, salt, pepper, lemon">
           <a href="https://www.recipetineats.com/roast-chicken/" target="_blank">Roast Chicken (RecipeTin Eats)</a>
         </li>
-        <li data-summary="Hong Kong-style red-braised soy sauce chicken wings" data-ingredients="Chicken wings, soy sauce, dark soy sauce, sugar, garlic, ginger, star anise">
+        <li data-cook-count="0" data-summary="Hong Kong-style red-braised soy sauce chicken wings" data-ingredients="Chicken wings, soy sauce, dark soy sauce, sugar, garlic, ginger, star anise">
           <a href="https://www.thehongkongcookery.com/2012/04/soy-sauce-chicken-wings.html" target="_blank">Soy Sauce Chicken Wings 紅燒雞翼</a>
         </li>
       </ul>
@@ -193,7 +193,39 @@
   </main>
 
   <script>
-    // Counter: read category emoji+name from data-category attribute, count <li> per section
+    // ── Dynamic "Today" summary ──
+    const MENU = {
+      1: { day: 'Mon', meals: 'Honey Soy Chicken Wings · Bok Choy Stir-Fry' },
+      2: { day: 'Tue', meals: 'Fish Slice, Tofu & Prawn Ball Soup · Broccoli Sesame Oil' },
+      3: { day: 'Wed', meals: 'Crispy Baked Chicken Drumsticks · Roasted Cauliflower' },
+      4: { day: 'Thu', meals: 'Mirin Glazed Salmon · Blanched Broccoli' },
+      5: { day: 'Fri', meals: 'Chinese Chicken Chop · Everyday Vegetable Stir-Fry' }
+    };
+    function updateTodaySummary() {
+      // Use SGT (UTC+8)
+      const now = new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Singapore' }));
+      const dow = now.getDay(); // 0=Sun, 1=Mon … 6=Sat
+      const entry = MENU[dow];
+      const el = document.getElementById('today-summary');
+      if (entry) {
+        el.textContent = 'Today · ' + entry.day + ': ' + entry.meals;
+      } else {
+        el.textContent = 'Weekend — see full week below ▾';
+      }
+      // Highlight today row in table
+      document.querySelectorAll('#weekly-menu tbody tr').forEach((tr, i) => {
+        tr.classList.toggle('today', i === (dow === 0 ? 6 : dow - 1));
+      });
+    }
+    updateTodaySummary();
+    // Re-check at next midnight SGT
+    function msToMidnightSGT() {
+      const now = new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Singapore' }));
+      return ((23 - now.getHours()) * 3600 + (59 - now.getMinutes()) * 60 + (60 - now.getSeconds())) * 1000;
+    }
+    setTimeout(function tick() { updateTodaySummary(); setTimeout(tick, 86400000); }, msToMidnightSGT());
+
+    // ── Recipe counter (header) ──
     const EMOJI = { chicken: '🍗', fish: '🐟', mains: '🍖', sides: '🥗' };
     const LABELS = { chicken: 'Chicken', fish: 'Fish', mains: 'Mains', sides: 'Sides' };
     let total = 0, parts = [];
@@ -204,6 +236,24 @@
       parts.push(EMOJI[key] + ' ' + LABELS[key] + ' (' + count + ')');
     });
     document.getElementById('recipe-counts').textContent = parts.join(' · ') + ' — Total: ' + total;
+
+    // ── Cook counter display ──
+    const STORAGE_KEY = 'cheng_cook_counts';
+    function loadCounts() { try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } catch(e) { return {}; } }
+    function saveCounts(c) { localStorage.setItem(STORAGE_KEY, JSON.stringify(c)); }
+    function renderCounts() {
+      const counts = loadCounts();
+      document.querySelectorAll('#recipe-library li[data-cook-count]').forEach(li => {
+        const name = li.querySelector('a').textContent.trim();
+        const n = counts[name] || 0;
+        let badge = li.querySelector('.cook-count');
+        if (!badge) { badge = document.createElement('span'); badge.className = 'cook-count'; li.appendChild(badge); }
+        badge.textContent = n > 0 ? '🍳 ×' + n : '🍳 ×0';
+        badge.title = 'Cooked ' + n + ' time' + (n !== 1 ? 's' : '');
+        badge.onclick = e => { e.preventDefault(); const c = loadCounts(); c[name] = (c[name] || 0) + 1; saveCounts(c); renderCounts(); };
+      });
+    }
+    renderCounts();
 
     // Tooltip
     let tip = null;
