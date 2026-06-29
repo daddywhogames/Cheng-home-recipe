@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHENG'S KITCHEN</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="site-header">
+        <h1>CHENG'S KITCHEN</h1>
+        <p>Recipes: Chicken (3), Fish (2), Mains (2), Vegetables (2), Carbohydrates (2) — Total: 11</p>
+        <p><time datetime="2026-06-29">Last updated: 29 June 2026</time></p>
+    </header>
+
+    <details id="weekly-menu">
+        <summary>Today · Mon: Hainanese Chicken Rice · Stir-fried Kai Lan ▾</summary>
+        <table>
+            <thead>
+                <tr><th>Day</th><th>Meal</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Monday</td><td>Hainanese Chicken Rice + Stir-fried Kai Lan</td></tr>
+                <tr><td>Tuesday</td><td>Nonya Assam Fish + Chap Chye</td></tr>
+                <tr><td>Wednesday</td><td>Bak Kut Teh + Wonton Mee</td></tr>
+                <tr><td>Thursday</td><td>Soy Sauce Chicken + Braised Pork Belly</td></tr>
+                <tr><td>Friday</td><td>Ayam Buah Keluak + Char Siew Rice</td></tr>
+                <tr><td>Saturday</td><td>(Weekend — last menu repeated)</td></tr>
+                <tr><td>Sunday</td><td>(Weekend — last menu repeated)</td></tr>
+            </tbody>
+        </table>
+    </details>
+
+    <main id="recipe-library">
+        <section data-category="chicken">
+            <h2>Chicken</h2>
+            <ul>
+                <li data-new="true" data-summary="Aromatic, flavorful rice served with tender chicken." data-ingredients="Chicken, Rice, Ginger, Soy Sauce"><a href="hainanese-chicken-rice.md">Hainanese Chicken Rice</a></li>
+                <li data-summary="Classic soy sauce chicken." data-ingredients="Chicken, Soy Sauce, Ginger, Star Anise"><a href="soy-sauce-chicken.md">Soy Sauce Chicken</a></li>
+                <li data-summary="Spicy and tangy chicken dish." data-ingredients="Chicken, Candlenut, Tamarind, Chili"><a href="ayam-buah-keluak.md">Ayam Buah Keluak</a></li>
+            </ul>
+        </section>
+
+        <section data-category="fish">
+            <h2>Fish</h2>
+            <ul>
+                <li data-summary="Lightly steamed fish with aromatic ginger." data-ingredients="Soon Hock, Ginger, Soy Sauce"><a href="steamed-soon-hock.md">Steamed Soon Hock</a></li>
+                <li data-summary="Sweet and sour fish curry." data-ingredients="Fish, Tamarind, Coconut Milk"><a href="nonya-assam-fish.md">Nonya Assam Fish</a></li>
+            </ul>
+        </section>
+
+        <section data-category="mains">
+            <h2>Mains</h2>
+            <ul>
+                <li data-summary="Herbal pork rib soup." data-ingredients="Pork Ribs, Garlic, White Peppercorn"><a href="bak-kut-teh.md">Bak Kut Teh</a></li>
+                <li data-summary="Rich, slow-cooked pork belly." data-ingredients="Pork Belly, Dark Soy Sauce, Garlic"><a href="braised-pork-belly.md">Braised Pork Belly</a></li>
+            </ul>
+        </section>
+
+        <section data-category="vegetables">
+            <h2>Vegetables</h2>
+            <ul>
+                <li data-summary="Crisp and fresh stir-fried greens." data-ingredients="Kai Lan, Garlic, Oyster Sauce"><a href="stir-fried-kai-lan.md">Stir-fried Kai Lan</a></li>
+                <li data-summary="Colorful mix of vegetables in a light sauce." data-ingredients="Cabbage, Carrot, Mushrooms"><a href="chap-chye.md">Chap Chye</a></li>
+            </ul>
+        </section>
+
+        <section data-category="carbohydrates">
+            <h2>Carbohydrates</h2>
+            <ul>
+                <li data-summary="Noodles with char siew and dumplings." data-ingredients="Noodles, Char Siew, Dumplings"><a href="wonton-mee.md">Wonton Mee</a></li>
+                <li data-summary="Savory rice with roasted pork." data-ingredients="Rice, Char Siew, Soy Sauce"><a href="char-siew-rice.md">Char Siew Rice</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <script>
+        // Dynamic update script
+        document.querySelectorAll('section').forEach(section => {
+            const count = section.querySelectorAll('li').length;
+            section.querySelector('h2').innerHTML += ` (${count})`;
+        });
+
+        // Tooltip functionality
+        document.querySelectorAll('li').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                const tooltip = document.createElement('div');
+                tooltip.className = 'tooltip';
+                tooltip.innerHTML = `<strong>${item.dataset.summary}</strong><br>Ingredients: ${item.dataset.ingredients}`;
+                item.appendChild(tooltip);
+            });
+            item.addEventListener('mouseleave', () => {
+                const tooltip = item.querySelector('.tooltip');
+                if (tooltip) item.removeChild(tooltip);
+            });
+        });
+    </script>
+</body>
+</html>

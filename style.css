@@ -1,0 +1,139 @@
+/* Root variables */
+:root {
+    --ink: #1C1A17;
+    --paper: #FAF7F2;
+    --accent: #B85C2A;
+    --rule: #D9D2C7;
+    --tag-bg: #F0EBE3;
+    --new-badge: #2A6B3C;
+    --text-xs: 11px;
+    --text-sm: 13px;
+    --text-base: 15px;
+    --text-lg: 18px;
+    --text-xl: 24px;
+    --text-display: 36px;
+    --category-chicken: #C4743A;
+    --category-fish: #3A7CA5;
+    --category-mains: #8B5E3C;
+    --category-vegetables: #4A7C59;
+    --category-carbohydrates: #7B5EA7;
+}
+
+/* Global styles */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--paper);
+    color: var(--ink);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    color: var(--accent);
+    text-align: center;
+    font-size: var(--text-display);
+}
+
+header p {
+    text-align: center;
+    font-size: var(--text-sm);
+    color: var(--ink);
+    opacity: 0.7;
+}
+
+/* Weekly menu styling */
+details {
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    margin: 10px auto;
+    max-width: 600px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+details[open] summary {
+    background-color: rgba(184, 92, 42, 0.1); /* Accent with 10% opacity */
+}
+summary {
+    padding: 10px;
+    cursor: pointer;
+    list-style: none;
+}
+
+/* Recipe library styles */
+section {
+    max-width: 680px;
+    margin: 20px auto;
+}
+h2 {
+    font-size: var(--text-lg);
+    border-left: 3px solid;
+    padding-left: 10px;
+}
+section[data-category="chicken"] h2 {
+    border-color: var(--category-chicken);
+}
+section[data-category="fish"] h2 {
+    border-color: var(--category-fish);
+}
+section[data-category="mains"] h2 {
+    border-color: var(--category-mains);
+}
+section[data-category="vegetables"] h2 {
+    border-color: var(--category-vegetables);
+}
+section[data-category="carbohydrates"] h2 {
+    border-color: var(--category-carbohydrates);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.3s;
+}
+a:hover {
+    border-bottom: 1px solid var(--accent);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+}
+li[data-new="true"]::after {
+    content: 'NEW ✦';
+    color: var(--new-badge);
+    font-size: var(--text-xs);
+    margin-left: 10px;
+}
+li:hover {
+    transform: translateX(4px);
+    transition: transform 120ms ease;
+}
+
+.tooltip {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--paper);
+    border: 1px solid var(--rule);
+    padding: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    white-space: nowrap;
+    z-index: 10;
+}
+
+@media (min-width: 768px) {
+    /* Styles for larger screens */
+    #site-header, #weekly-menu, #recipe-library {
+        max-width: 1000px;
+        margin: auto;
+    }
+}
