@@ -90,6 +90,12 @@
         <li data-cook-count="0" data-summary="Hong Kong-style red-braised soy sauce chicken wings" data-ingredients="Chicken wings, soy sauce, dark soy sauce, sugar, garlic, ginger, star anise">
           <a href="https://www.thehongkongcookery.com/2012/04/soy-sauce-chicken-wings.html" target="_blank">Soy Sauce Chicken Wings 紅燒雞翼</a>
         </li>
+        <li data-new="true" data-cook-count="0" data-summary="Indonesian smashed fried chicken, typically served with sambal, rice, and fresh vegetables." data-ingredients="Chicken, various spices for marinade (turmeric, coriander, candlenut), flour for coating, oil for frying.">
+          <a href="https://www.instagram.com/reel/DSCv42iD2rJ/?igsh=cGhrZnpsZG8wZzZn" target="_blank">Ayam Penyet (Lennard Yeong)</a>
+        </li>
+        <li data-new="true" data-cook-count="0" data-summary="Tender, juicy chicken thighs with savory-sweet teriyaki sauce, served with fluffy rice and steamed vegetables." data-ingredients="Chicken thighs, soy sauce, mirin, sugar, sake, garlic, ginger, cooked rice, steamed vegetables (broccoli, carrots).">
+          <a href="https://yujinizakaya.com.sg/japanese-teriyaki-chicken-bento-box-recipe/" target="_blank">Japanese Teriyaki Chicken Bento</a>
+        </li>
       </ul>
     </section>
 
@@ -125,6 +131,15 @@
         </li>
         <li data-cook-count="0" data-summary="Teochew-style steamed fish in sour and savoury broth" data-ingredients="Whole fish, salted plums, tomato, sour mustard greens, ginger, tofu, chilli">
           <a href="https://souperdiaries.com/teochew-steamed-fish/" target="_blank">Teochew Steamed Fish (Souper Diaries)</a>
+        </li>
+        <li data-new="true" data-cook-count="0" data-summary="Easy oven-baked fish fingers with a golden, crunchy exterior and flaky white fish inside." data-ingredients="White fish fillets (cod/haddock), all-purpose flour, paprika, garlic powder, onion powder, salt, black pepper, eggs, panko breadcrumbs, grated Parmesan cheese, vegetable oil.">
+          <a href="https://recipes2make.com/crispy-fish-fingers-easy-oven-baked-recipe/" target="_blank">Crispy Baked Fish Fingers</a>
+        </li>
+        <li data-new="true" data-cook-count="0" data-summary="Light and healthy fish slice, tofu, and prawn ball soup with vegetables." data-ingredients="Batang fish, tofu, prawn balls, vegetables, ginger, spring onion, chicken broth.">
+          <a href="https://noobcook.com/how-to-prepare-batang-fish/" target="_blank">Fish Slice, Tofu, Prawn Ball Soup with Vegetables</a>
+        </li>
+        <li data-new="true" data-cook-count="0" data-summary="Quick and easy Teochew-style steamed pomfret with salted plums, tomatoes, salted mustard greens, shiitake mushrooms, and tofu." data-ingredients="White/silver pomfret, salted plums, salted mustard greens, tomato, dried shiitake mushrooms, young ginger, silken tofu, water, salt, lard/shallot oil.">
+          <a href="https://www.foodelicacy.com/teochew-style-steamed-pomfret/" target="_blank">Steamed Pomfret</a>
         </li>
       </ul>
     </section>
@@ -195,6 +210,21 @@
       </ul>
     </section>
 
+    <section data-category="soup">
+      <h2>🥣 Soup</h2>
+      <ul>
+        <li data-new="true" data-cook-count="0" data-summary="Light, healthy, and nutritious Korean seaweed soup, typically made with sea mustard (wakame) and beef, seasoned with salt, soy sauce, garlic, and roasted sesame oil." data-ingredients="Dried seaweed (Miyeok/wakame), beef chuck or round steak, fine sea salt, black pepper, sesame oil, soy sauce, minced garlic, water.">
+          <a href="https://mykoreankitchen.com/korean-seaweed-soup-miyeok-guk/" target="_blank">Korean Seaweed Soup (Miyeok Guk)</a>
+        </li>
+        <li data-new="true" data-cook-count="0" data-summary="Delicious and aromatic chicken soup with cordyceps flower, excellent for energy, eyesight, and immune system, with a slight woody scent and an orangey tint." data-ingredients="½ chicken, cordycep flowers, Huai Shan (Dried Chinese yam), dried scallops, goji berries, water, salt (optional).">
+          <a href="https://souperdiaries.com/cordyceps-flower-chicken-soup/" target="_blank">Cordycep Chicken Soup</a>
+        </li>
+        <li data-new="true" data-cook-count="0" data-summary="A naturally sweet and delicate soup with corn, carrots, tomatoes, and beetroot, simmered for a light and comforting broth." data-ingredients="Corn, carrots, tomatoes, beetroot (added), water. Optional: sweet potato/potato.">
+          <a href="https://nomadette.com/easy-abc-soup/" target="_blank">ABC Beetroot Soup</a>
+        </li>
+      </ul>
+    </section>
+
   </main>
 
   <script>
@@ -231,8 +261,8 @@
     setTimeout(function tick() { updateTodaySummary(); setTimeout(tick, 86400000); }, msToMidnightSGT());
 
     // ── Recipe counter (header) ──
-    const EMOJI = { chicken: '🍗', fish: '🐟', mains: '🍖', sides: '🥗' };
-    const LABELS = { chicken: 'Chicken', fish: 'Fish', mains: 'Mains', sides: 'Sides' };
+    const EMOJI = { chicken: '🍗', fish: '🐟', mains: '🍖', sides: '🥗', soup: '🥣' };
+    const LABELS = { chicken: 'Chicken', fish: 'Fish', mains: 'Mains', sides: 'Sides', soup: 'Soup' };
     let total = 0, parts = [];
     document.querySelectorAll('#recipe-library section[data-category]').forEach(s => {
       const key = s.dataset.category;
