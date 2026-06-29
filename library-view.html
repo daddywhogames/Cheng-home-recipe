@@ -1,99 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHENG'S KITCHEN</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHENG'S KITCHEN</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header id="site-header">
-        <h1>CHENG'S KITCHEN</h1>
-        <p>Recipes: Chicken (3), Fish (2), Mains (2), Vegetables (2), Carbohydrates (2) — Total: 11</p>
-        <p><time datetime="2026-06-29">Last updated: 29 June 2026</time></p>
-    </header>
 
-    <details id="weekly-menu">
-        <summary>Today · Mon: Hainanese Chicken Rice · Stir-fried Kai Lan ▾</summary>
-        <table>
-            <thead>
-                <tr><th>Day</th><th>Meal</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>Monday</td><td>Hainanese Chicken Rice + Stir-fried Kai Lan</td></tr>
-                <tr><td>Tuesday</td><td>Nonya Assam Fish + Chap Chye</td></tr>
-                <tr><td>Wednesday</td><td>Bak Kut Teh + Wonton Mee</td></tr>
-                <tr><td>Thursday</td><td>Soy Sauce Chicken + Braised Pork Belly</td></tr>
-                <tr><td>Friday</td><td>Ayam Buah Keluak + Char Siew Rice</td></tr>
-                <tr><td>Saturday</td><td>(Weekend — last menu repeated)</td></tr>
-                <tr><td>Sunday</td><td>(Weekend — last menu repeated)</td></tr>
-            </tbody>
-        </table>
-    </details>
+  <header id="site-header">
+    <h1>CHENG'S KITCHEN</h1>
+    <p id="recipe-counts">Loading counts…</p>
+    <p><time datetime="2026-06-29">Last updated: 29 June 2026</time></p>
+  </header>
 
-    <main id="recipe-library">
-        <section data-category="chicken">
-            <h2>Chicken</h2>
-            <ul>
-                <li data-new="true" data-summary="Aromatic, flavorful rice served with tender chicken." data-ingredients="Chicken, Rice, Ginger, Soy Sauce"><a href="hainanese-chicken-rice.md">Hainanese Chicken Rice</a></li>
-                <li data-summary="Classic soy sauce chicken." data-ingredients="Chicken, Soy Sauce, Ginger, Star Anise"><a href="soy-sauce-chicken.md">Soy Sauce Chicken</a></li>
-                <li data-summary="Spicy and tangy chicken dish." data-ingredients="Chicken, Candlenut, Tamarind, Chili"><a href="ayam-buah-keluak.md">Ayam Buah Keluak</a></li>
-            </ul>
-        </section>
+  <details id="weekly-menu">
+    <summary>Today · Mon: Hainanese Chicken Rice · Stir-fried Kai Lan</summary>
+    <div class="menu-inner">
+      <table>
+        <thead><tr><th>Day</th><th>Meal</th></tr></thead>
+        <tbody>
+          <tr class="today"><td>Monday</td><td>Hainanese Chicken Rice + Stir-fried Kai Lan</td></tr>
+          <tr><td>Tuesday</td><td>Nonya Assam Fish + Bok Choy Stir-Fry</td></tr>
+          <tr><td>Wednesday</td><td>Braised Pork Belly + Broccoli with Sesame Oil</td></tr>
+          <tr><td>Thursday</td><td>Miso Salmon + Everyday Vegetable Stir-Fry</td></tr>
+          <tr><td>Friday</td><td>Soy Sauce Chicken Wings + Japchae</td></tr>
+          <tr class="weekend"><td>Saturday</td><td>Ayam Buah Keluak + Char Siew Rice <span class="note">(Weekend — last menu repeated)</span></td></tr>
+          <tr class="weekend"><td>Sunday</td><td>Ayam Buah Keluak + Char Siew Rice <span class="note">(Weekend — last menu repeated)</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
 
-        <section data-category="fish">
-            <h2>Fish</h2>
-            <ul>
-                <li data-summary="Lightly steamed fish with aromatic ginger." data-ingredients="Soon Hock, Ginger, Soy Sauce"><a href="steamed-soon-hock.md">Steamed Soon Hock</a></li>
-                <li data-summary="Sweet and sour fish curry." data-ingredients="Fish, Tamarind, Coconut Milk"><a href="nonya-assam-fish.md">Nonya Assam Fish</a></li>
-            </ul>
-        </section>
+  <main id="recipe-library">
 
-        <section data-category="mains">
-            <h2>Mains</h2>
-            <ul>
-                <li data-summary="Herbal pork rib soup." data-ingredients="Pork Ribs, Garlic, White Peppercorn"><a href="bak-kut-teh.md">Bak Kut Teh</a></li>
-                <li data-summary="Rich, slow-cooked pork belly." data-ingredients="Pork Belly, Dark Soy Sauce, Garlic"><a href="braised-pork-belly.md">Braised Pork Belly</a></li>
-            </ul>
-        </section>
+    <section data-category="chicken">
+      <h2>Chicken</h2>
+      <ul>
+        <li data-new="true" data-summary="Classic Hainanese poached chicken over fragrant rice" data-ingredients="Whole chicken, jasmine rice, ginger, garlic, pandan leaves, sesame oil, soy sauce, chilli sauce">
+          <a href="chicken/Hainanese_Chicken_Rice_Marions_Kitchen.md">Hainanese Chicken Rice (Marion's Kitchen)</a>
+        </li>
+        <li data-summary="KFC-style crispy fried chicken made in the air fryer" data-ingredients="Chicken pieces, buttermilk, flour, paprika, garlic powder, onion powder, cayenne, salt">
+          <a href="chicken/air-fryer-fried-chicken-bigmansworld.md">Air Fryer Fried Chicken — KFC Style</a>
+        </li>
+        <li data-summary="Juicy oven-baked chicken legs with crispy skin" data-ingredients="Chicken drumsticks, olive oil, garlic powder, paprika, salt, pepper">
+          <a href="chicken/baked-chicken-legs-wholesomeyum.md">Baked Chicken Legs (Wholesome Yum)</a>
+        </li>
+        <li data-summary="Warming Chinese chicken and mushroom soup" data-ingredients="Chicken, dried shiitake mushrooms, ginger, soy sauce, sesame oil, scallions">
+          <a href="chicken/chicken-mushroom-soup-woksoflife.md">Chinese Chicken Mushroom Soup</a>
+        </li>
+        <li data-summary="SG/Malaysia hawker-style Chinese chicken chop with gravy" data-ingredients="Chicken thigh, soy sauce, oyster sauce, dark soy sauce, garlic, onion, tomato sauce">
+          <a href="chicken/chinese-chicken-chop-hawker-youtube.md">Chinese Chicken Chop 西式鸡扒</a>
+        </li>
+        <li data-summary="Ultra-crispy oven-baked chicken drumsticks" data-ingredients="Chicken drumsticks, baking powder, salt, pepper, paprika, garlic powder">
+          <a href="chicken/crispy-baked-drumsticks-recipetineats.md">Crispy Baked Chicken Drumsticks (RecipeTin)</a>
+        </li>
+        <li data-summary="Sweet and sticky honey soy chicken wings" data-ingredients="Chicken wings, honey, soy sauce, garlic, ginger, sesame oil">
+          <a href="chicken/honey-soy-chicken-wings-rasamalaysia.md">Honey Soy Chicken Wings (Rasa Malaysia)</a>
+        </li>
+        <li data-summary="Nigella's roast chicken with lemon, rosemary, garlic and potatoes" data-ingredients="Whole chicken, lemon, rosemary, garlic, potatoes, olive oil, salt, pepper">
+          <a href="chicken/nigella-roast-chicken-lemon-rosemary-potatoes.md">Nigella Roast Chicken with Lemon & Rosemary</a>
+        </li>
+        <li data-summary="⚠️ Estimated Instagram reel — roast chicken variation" data-ingredients="Unverified — see file">
+          <a href="chicken/reel-chicken-2.md">⚠️ Instagram Reel — Roast Chicken (Estimate)</a>
+        </li>
+        <li data-summary="⚠️ Estimated Instagram reel — roast chicken variation" data-ingredients="Unverified — see file">
+          <a href="chicken/reel-chicken-3.md">⚠️ Instagram Reel — Roast Chicken (Estimate 2)</a>
+        </li>
+        <li data-summary="⚠️ Estimated Instagram reel — drumstick variation" data-ingredients="Unverified — see file">
+          <a href="chicken/reel-chicken-4.md">⚠️ Instagram Reel — Drumstick (Estimate)</a>
+        </li>
+        <li data-summary="⚠️ Estimated Instagram reel — drumstick variation" data-ingredients="Unverified — see file">
+          <a href="chicken/reel-chicken-5.md">⚠️ Instagram Reel — Drumstick (Estimate 2)</a>
+        </li>
+        <li data-summary="⚠️ Estimated Instagram reel — drumstick variation" data-ingredients="Unverified — see file">
+          <a href="chicken/reel-drumstick-variation.md">⚠️ Instagram Reel — Drumstick Variation (Estimate)</a>
+        </li>
+        <li data-summary="Classic RecipeTin Eats roast chicken, juicy with crispy skin" data-ingredients="Whole chicken, butter, garlic, thyme, rosemary, salt, pepper, lemon">
+          <a href="chicken/roast-chicken-recipetineats.md">Roast Chicken (RecipeTin Eats)</a>
+        </li>
+        <li data-summary="Hong Kong-style red-braised soy sauce chicken wings" data-ingredients="Chicken wings, soy sauce, dark soy sauce, sugar, garlic, ginger, star anise">
+          <a href="chicken/soy-sauce-chicken-wings-hkcookery.md">Soy Sauce Chicken Wings 紅燒雞翼</a>
+        </li>
+      </ul>
+    </section>
 
-        <section data-category="vegetables">
-            <h2>Vegetables</h2>
-            <ul>
-                <li data-summary="Crisp and fresh stir-fried greens." data-ingredients="Kai Lan, Garlic, Oyster Sauce"><a href="stir-fried-kai-lan.md">Stir-fried Kai Lan</a></li>
-                <li data-summary="Colorful mix of vegetables in a light sauce." data-ingredients="Cabbage, Carrot, Mushrooms"><a href="chap-chye.md">Chap Chye</a></li>
-            </ul>
-        </section>
+    <section data-category="fish">
+      <h2>Fish</h2>
+      <ul>
+        <li data-summary="Healthy lemon garlic baked salmon" data-ingredients="Salmon fillets, lemon, garlic, olive oil, parsley, salt, pepper">
+          <a href="fish/baked-salmon-lemon-garlic-lecreme.md">Baked Salmon — Lemon &amp; Garlic (Creme de la Crumb)</a>
+        </li>
+        <li data-summary="Classic Cantonese-style steamed fish with ginger and soy" data-ingredients="Whole fish or fillet, ginger, scallions, soy sauce, sesame oil, vegetable oil">
+          <a href="fish/cantonese-steamed-fish-woksoflife.md">Cantonese Steamed Fish (Woks of Life)</a>
+        </li>
+        <li data-summary="Crispy battered fish tacos with fresh mango salsa" data-ingredients="White fish, flour, egg, panko, mango, red onion, coriander, lime, cabbage, tortillas">
+          <a href="fish/crispy-fish-tacos-mango-salsa.md">Crispy Fish Tacos with Mango Salsa</a>
+        </li>
+        <li data-summary="⚠️ Cookbook-only crispy skin fish — no online recipe" data-ingredients="Unverified — see file">
+          <a href="fish/crispy-skin-fish-recipetineats.md">⚠️ Crispy Skin Fish (RecipeTin — Cookbook only)</a>
+        </li>
+        <li data-summary="Japanese grilled yellowtail collar, lightly salted" data-ingredients="Hamachi kama (yellowtail collar), salt, daikon radish, soy sauce, lemon">
+          <a href="fish/hamachi-kama-justonecookbook.md">Hamachi Kama — Grilled Yellowtail Collar</a>
+        </li>
+        <li data-summary="Hong Kong-style delicate steamed cod" data-ingredients="Cod fillet, ginger, scallions, soy sauce, sesame oil, hot oil">
+          <a href="fish/hk-steamed-cod-honestcooking.md">Hong Kong Steamed Cod</a>
+        </li>
+        <li data-summary="Fast Nigella mirin-glazed salmon — sticky, sweet, savoury" data-ingredients="Salmon fillets, mirin, soy sauce, sake or dry sherry">
+          <a href="fish/mirin-glazed-salmon-nigella.md">Mirin Glazed Salmon (Nigella)</a>
+        </li>
+        <li data-summary="Japanese miso-marinated salmon, broiled or baked" data-ingredients="Salmon fillets, white miso, mirin, sake, sugar, soy sauce">
+          <a href="fish/miso-salmon-justonecookbook.md">Miso Salmon 味噌サーモン (Just One Cookbook)</a>
+        </li>
+        <li data-summary="Roasted cod with tomatoes and sweet corn" data-ingredients="Cod fillets, cherry tomatoes, corn, garlic, olive oil, thyme, salt, pepper">
+          <a href="fish/roasted-cod-tomatoes-corn.md">Roasted Cod with Tomatoes and Corn</a>
+        </li>
+        <li data-summary="Teochew-style steamed fish in sour and savoury broth" data-ingredients="Whole fish, salted plums, tomato, sour mustard greens, ginger, tofu, chilli">
+          <a href="fish/teochew-steamed-fish-souperdiaries.md">Teochew Steamed Fish (Souper Diaries)</a>
+        </li>
+      </ul>
+    </section>
 
-        <section data-category="carbohydrates">
-            <h2>Carbohydrates</h2>
-            <ul>
-                <li data-summary="Noodles with char siew and dumplings." data-ingredients="Noodles, Char Siew, Dumplings"><a href="wonton-mee.md">Wonton Mee</a></li>
-                <li data-summary="Savory rice with roasted pork." data-ingredients="Rice, Char Siew, Soy Sauce"><a href="char-siew-rice.md">Char Siew Rice</a></li>
-            </ul>
-        </section>
-    </main>
+    <section data-category="mains">
+      <h2>Mains</h2>
+      <ul>
+        <li data-summary="Tender red-braised pork belly — Hong Shao Rou" data-ingredients="Pork belly, soy sauce, dark soy sauce, Shaoxing wine, sugar, ginger, garlic, star anise">
+          <a href="mains/braised-pork-belly-hongshaorou-redhousespice.md">Braised Pork Belly 红烧肉 (Red House Spice)</a>
+        </li>
+        <li data-summary="Fall-off-the-bone Chinese braised pork trotters" data-ingredients="Pork trotters, soy sauce, dark soy sauce, Shaoxing wine, rock sugar, ginger, garlic">
+          <a href="mains/braised-pork-trotters-omnivorescookbook.md">Chinese Braised Pork Trotters 红烧猪蹄</a>
+        </li>
+        <li data-summary="Quick and creamy garlic shrimp pasta" data-ingredients="Shrimp, linguine, garlic, butter, cream, parmesan, parsley, lemon">
+          <a href="mains/creamy-garlic-shrimp-pasta-littlesunnykitchen.md">Creamy Garlic Shrimp Pasta</a>
+        </li>
+        <li data-summary="Rich and creamy mushroom pasta, restaurant-style" data-ingredients="Pasta, mixed mushrooms, garlic, thyme, cream, parmesan, butter, white wine">
+          <a href="mains/creamy-mushroom-pasta-recipetineats.md">Creamy Mushroom Pasta (RecipeTin Eats)</a>
+        </li>
+        <li data-summary="Korean black bean noodles — dark, savoury, satisfying" data-ingredients="Fresh noodles, pork, chunjang (black bean paste), cabbage, zucchini, onion, potato starch, water">
+          <a href="mains/jjajangmyeon-maangchi.md">Jjajangmyeon 짜장면 — Korean Black Bean Noodles</a>
+        </li>
+        <li data-summary="Korean marinated beef bulgogi, sweet and savoury" data-ingredients="Beef (ribeye or sirloin), soy sauce, sesame oil, garlic, ginger, brown sugar, pear/apple, scallions">
+          <a href="mains/korean-beef-bulgogi-damndelicious.md">Korean Beef Bulgogi (Damn Delicious)</a>
+        </li>
+      </ul>
+    </section>
 
-    <script>
-        // Dynamic update script
-        document.querySelectorAll('section').forEach(section => {
-            const count = section.querySelectorAll('li').length;
-            section.querySelector('h2').innerHTML += ` (${count})`;
-        });
+    <section data-category="sides">
+      <h2>Sides</h2>
+      <ul>
+        <li data-summary="Cantonese garlic bok choy stir-fry" data-ingredients="Bok choy, garlic, oil, oyster sauce, soy sauce, sesame oil">
+          <a href="sides/bok-choy-stir-fry-garlic-tasteasianfood.md">Bok Choy Stir-Fry with Garlic</a>
+        </li>
+        <li data-summary="Blanched broccoli seasoned with sesame oil — meal-prep friendly" data-ingredients="Broccoli, sesame oil, salt">
+          <a href="sides/broccoli-blanched-sesame-oil-justonecookbook.md">Broccoli Blanched with Sesame Oil</a>
+        </li>
+        <li data-summary="Crispy seasoned air fryer potatoes" data-ingredients="Potatoes, olive oil, garlic powder, paprika, Italian seasoning, salt, pepper">
+          <a href="sides/crispy-air-fryer-potatoes-feelgoodfoodie.md">Crispy Air Fryer Potatoes</a>
+        </li>
+        <li data-summary="Flexible Chinese-style vegetable stir-fry" data-ingredients="Mixed vegetables (your choice), garlic, oyster sauce, soy sauce, sesame oil, oil">
+          <a href="sides/everyday-vegetable-stir-fry-woksoflife.md">Everyday Vegetable Stir-Fry (Woks of Life)</a>
+        </li>
+        <li data-summary="Korean glass noodle stir-fry with vegetables and beef" data-ingredients="Glass noodles (dangmyeon), beef, spinach, carrot, mushrooms, soy sauce, sesame oil, garlic, sugar">
+          <a href="sides/japchae-beyondkimchee.md">Japchae 잡채 — Korean Glass Noodles (Beyond Kimchee)</a>
+        </li>
+        <li data-summary="Simple Cantonese luffa (silk gourd) stir-fried with egg" data-ingredients="Luffa (silk gourd), eggs, garlic, oil, salt">
+          <a href="sides/luffa-with-egg-simplymommie.md">Luffa with Egg 絲瓜炒蛋</a>
+        </li>
+        <li data-summary="Creamy mashed sweet potatoes" data-ingredients="Sweet potatoes, butter, cream, salt, pepper, nutmeg (optional)">
+          <a href="sides/mashed-sweet-potatoes-marthastewart.md">Mashed Sweet Potatoes (Martha Stewart)</a>
+        </li>
+        <li data-summary="Herb oven-roasted potatoes, crispy outside and fluffy inside" data-ingredients="Potatoes, olive oil, garlic, rosemary, thyme, salt, pepper">
+          <a href="sides/oven-roasted-potatoes-spendwithpennies.md">Simple Herb Oven Roasted Potatoes</a>
+        </li>
+        <li data-summary="Provençal-style roasted cauliflower with herbes de Provence" data-ingredients="Cauliflower, olive oil, herbes de Provence, garlic, salt, pepper">
+          <a href="sides/roasted-cauliflower-herbes-claudiastable.md">Roasted Cauliflower with Herbes de Provence</a>
+        </li>
+        <li data-summary="Soy butter glazed king oyster mushrooms — umami and rich" data-ingredients="King oyster mushrooms, butter, soy sauce, garlic, mirin">
+          <a href="sides/soy-butter-king-oyster-mushrooms-woksoflife.md">Soy Butter King Oyster Mushrooms</a>
+        </li>
+        <li data-summary="Chinese spinach in a light, silky superior broth" data-ingredients="Chinese spinach (yin choy), chicken broth, garlic, wolfberries, century egg (optional)">
+          <a href="sides/spinach-superior-broth-noobcook.md">Chinese Spinach in Superior Broth</a>
+        </li>
+        <li data-summary="Fresh tomato and avocado salad with a simple dressing" data-ingredients="Tomatoes, avocado, red onion, coriander, olive oil, lime juice, salt, pepper">
+          <a href="sides/tomato-avocado-salad-gimmedelicious.md">Easy Tomato Avocado Salad</a>
+        </li>
+      </ul>
+    </section>
 
-        // Tooltip functionality
-        document.querySelectorAll('li').forEach(item => {
-            item.addEventListener('mouseenter', () => {
-                const tooltip = document.createElement('div');
-                tooltip.className = 'tooltip';
-                tooltip.innerHTML = `<strong>${item.dataset.summary}</strong><br>Ingredients: ${item.dataset.ingredients}`;
-                item.appendChild(tooltip);
-            });
-            item.addEventListener('mouseleave', () => {
-                const tooltip = item.querySelector('.tooltip');
-                if (tooltip) item.removeChild(tooltip);
-            });
-        });
-    </script>
+  </main>
+
+  <script>
+    // Dynamic recipe counts in header
+    const sections = document.querySelectorAll('#recipe-library section');
+    let total = 0, parts = [];
+    sections.forEach(s => {
+      const cat = s.querySelector('h2').textContent.split('(')[0].trim();
+      const count = s.querySelectorAll('li').length;
+      total += count;
+      parts.push(`${cat} (${count})`);
+    });
+    document.getElementById('recipe-counts').textContent = parts.join(' · ') + ` — Total: ${total}`;
+
+    // Tooltip on hover / focus / touch
+    let activeTooltip = null;
+    function showTip(li) {
+      hideTip();
+      const tip = document.createElement('div');
+      tip.className = 'tooltip';
+      tip.innerHTML = `<strong>${li.dataset.summary || ''}</strong>${li.dataset.ingredients ? '<br><span class="tip-ing">Ingredients: ' + li.dataset.ingredients + '</span>' : ''}`;
+      li.appendChild(tip);
+      activeTooltip = tip;
+    }
+    function hideTip() {
+      if (activeTooltip) { activeTooltip.remove(); activeTooltip = null; }
+    }
+    document.querySelectorAll('#recipe-library li').forEach(li => {
+      li.addEventListener('mouseenter', () => showTip(li));
+      li.addEventListener('mouseleave', hideTip);
+      li.addEventListener('focusin', () => showTip(li));
+      li.addEventListener('focusout', hideTip);
+      li.addEventListener('touchstart', e => {
+        if (activeTooltip && li.contains(activeTooltip)) { hideTip(); }
+        else { e.preventDefault(); showTip(li); }
+      }, { passive: false });
+    });
+    document.addEventListener('touchstart', e => {
+      if (activeTooltip && !activeTooltip.closest('li').contains(e.target)) hideTip();
+    });
+  </script>
+
 </body>
 </html>
